@@ -4,10 +4,10 @@
 exports.Functions = {
 	send_msg_with_pos : function(pos, ee){
 		var position_box = {};
-		position_box['minLat'] = 37.5;
+		position_box['minLat'] = 37.0;
 		position_box['maxLat'] = 38.0;
-		position_box['minLong'] = -122.6;
-		position_box['maxLong'] = -122.2;
+		position_box['minLong'] = -122.5;
+		position_box['maxLong'] = -121.5;
 		var feedback;
 		if (parseFloat(pos.latitude) > parseFloat(position_box['minLat']) && parseFloat(pos.latitude) < parseFloat(position_box['maxLat']) && 
 			parseFloat(pos.longitude) > parseFloat(position_box['minLong']) && parseFloat(pos.longitude) < parseFloat(position_box['maxLong'])){
