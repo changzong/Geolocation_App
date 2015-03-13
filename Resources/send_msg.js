@@ -30,6 +30,32 @@ exports.Functions = {
 			});
 			xhr.open("GET", url);
 			xhr.send();	
+			
+			var url1 = "http://edioi.com/justmsg/create.php";
+			var xhr1 = Ti.Network.createHTTPClient({
+				onload : function(e) { alert('sent message!'); },
+				onsendstream : function(e) { 
+					Ti.API.info(this.readyState);
+					Ti.API.info(this.responseText);
+				},
+				onerror : function(e) {
+					alert('sending error');
+				}
+			});
+			
+			xhr1.open("POST", url1);
+			//xhr1.setRequestHeader("Content-Type", "application/json");
+			xhr1.send({
+				name: 'Lush', 
+				message: 'Your are a bitch!'
+			});
+			//var xhr2 = Ti.Network.createHTTPClient();
+			//xhr2.onload = function(e) {
+				//json2 = JSON.parse(this.responseText);
+				//Ti.API.info(json2.message);
+			//};
+			//xhr2.open("GET", url1);
+			//xhr2.send();
 		}
 	}
 };
