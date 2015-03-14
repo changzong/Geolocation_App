@@ -69,8 +69,8 @@ button.addEventListener('click', function(){
 				width:'auto'
 			});
 			win1.add(pos_printer);
-			SendMsg.Functions.send_msg_with_pos(cb, function(ee){
-				Ti.API.info(ee.message);
+			SendMsg.Functions.get_msg_with_pos(cb, function(ee){
+				Ti.API.info(ee);
 				message_label = Ti.UI.createLabel({
                 	text : ee.message,
                 	font : {
@@ -90,5 +90,20 @@ button.addEventListener('click', function(){
 	//});
 });
 
+button2 = Ti.UI.createButton({
+	width:150,
+	height:40,
+	top: 50,
+	title:"Send Message!"
+});
 
+win2.add(button2);
+
+button2.addEventListener('click', function(){
+	GlobelV.Labels.get_curr_pos(function(cb){
+		SendMsg.Functions.send_msg_with_pos(cb, function(ee){
+			Ti.API.info(ee);
+		});
+	});
+});
 
