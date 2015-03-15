@@ -90,7 +90,7 @@ button.addEventListener('click', function(){
 	//});
 });
 
-button2 = Ti.UI.createButton({
+/*button2 = Ti.UI.createButton({
 	width:150,
 	height:40,
 	top: 50,
@@ -105,5 +105,30 @@ button2.addEventListener('click', function(){
 			Ti.API.info(ee);
 		});
 	});
+});*/
+
+var textField_id = SendMsg.Functions.input_text_adder()[0];
+var textField_msg = SendMsg.Functions.input_text_adder()[1];
+
+win2.add(textField_id);
+win2.add(textField_msg);
+
+button3 = Ti.UI.createButton({
+	width:150,
+	height:40,
+	top: 380,
+	title:"Go"
 });
 
+win2.add(button3);
+
+button3.addEventListener('click', function (e){
+    Ti.API.info(textField_id.value);
+    Ti.API.info(textField_msg.value);
+    var msg_list = [textField_id.value, textField_msg.value];
+    GlobelV.Labels.get_curr_pos(function(cb){
+    	SendMsg.Functions.send_msg_with_pos(msg_list, cb, function(ee){
+    		Ti.API.info(ee);
+    	});
+    });
+});
