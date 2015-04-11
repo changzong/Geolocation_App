@@ -12,14 +12,15 @@ exports.Functions = {
 		if (parseFloat(pos.latitude) > parseFloat(position_box['minLat']) && parseFloat(pos.latitude) < parseFloat(position_box['maxLat']) && 
 			parseFloat(pos.longitude) > parseFloat(position_box['minLong']) && parseFloat(pos.longitude) < parseFloat(position_box['maxLong'])){
 			Ti.API.info("I'm here");
-			var url = "http://edioi.com/justmsg/get.php";
+			var url = "http://127.0.0.1/query.php";
 			var json;
 			var xhr = Ti.Network.createHTTPClient({
 				onload: function(e) {
 					Ti.API.debug(this.responseText);
 					alert('success');
 					json = JSON.parse(this.responseText);
-					Ti.API.info(json.message);
+					//Ti.API.info(JSON.stringify(json.message));
+					//Ti.API.info(json.message);
             		ee(json);
 				},
 				onerror: function(e) {

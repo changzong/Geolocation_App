@@ -66,20 +66,27 @@ button.addEventListener('click', function(){
 				text:'Your current location is: '+ cb.latitude + cb.longitude,
 				font:{fontSize:20,fontFamily:'Helvetica Neue'},
 				textAlign:'center',
-				width:'auto'
+				width:'auto',
+				top: '5dp'
 			});
 			win1.add(pos_printer);
 			SendMsg.Functions.get_msg_with_pos(cb, function(ee){
-				Ti.API.info(ee);
+				//Ti.API.info(ee);
+				var list_block = '';
+				for (var i=0; i<ee.message.length; i++)
+				{
+					list_block = list_block + JSON.stringify(ee.subject[i]).replace(/(^"+|"+$)/g, '') + '\n\n';
+				}
+				Ti.API.info(list_block);
 				message_label = Ti.UI.createLabel({
-                	text : ee.message,
+                	text : list_block,
                 	font : {
-                    	fontSize : '24dp',
+                    	fontSize : '2dp',
                     	fontWeight : 'bold'
                 	},
                 	height : 'auto',
                 	left : '10dp',
-                	top : '5dp',
+                	top : '100dp',
                 	color : '#000',
                 	touchEnabled : false
             	});
