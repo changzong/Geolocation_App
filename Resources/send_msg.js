@@ -19,7 +19,7 @@ exports.Functions = {
 					Ti.API.debug(this.responseText);
 					alert('success');
 					json = JSON.parse(this.responseText);
-					//Ti.API.info(json.message);
+					Ti.API.info(json.message);
             		ee(json);
 				},
 				onerror: function(e) {
@@ -54,7 +54,7 @@ exports.Functions = {
 		xhr1.open("POST", url1);
 		//var content = {name: 'Lush', message: 'You are a bitch!'};
 		Ti.API.info(position_msg);
-		var content = {name: msg_list[0], message: msg_list[1], created_at: position_msg};
+		var content = {name: msg_list[0], message: msg_list[1], lat: parseFloat(pos.latitude), lng: parseFloat(pos.longitude)};
 		//var content = JSON.stringify(content);
 		//xhr1.setRequestHeader('Accept','application/json');
 		//xhr1.setRequestHeader('Content-Type','application/json');
