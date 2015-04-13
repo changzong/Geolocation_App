@@ -17,6 +17,14 @@ exports.Labels = {
 		textAlign:'center',
 		width:'auto'
 	}),
+	
+	label3 : Titanium.UI.createLabel({
+		color:'#999',
+		text:'Sign-in or Registeration',
+		font:{fontSize:20,fontFamily:'Helvetica Neue'},
+		textAlign:'center',
+		width:'auto'
+	}),
 
 	// Need callback("cb") to receive asynchronous function return value.
 	get_curr_pos : function(cb){

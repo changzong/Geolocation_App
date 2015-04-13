@@ -18,10 +18,10 @@ exports.SubHandler = {
 			navBarHidden: false,
 			modal: true
 		});
-		var nav = Ti.UI.iOS.createNavigationWindow({
+		/*var nav = Ti.UI.iOS.createNavigationWindow({
 			modal: true, 
 			window: win_sub
-		});
+		});*/
 		var sub_msg = content.message[content.subject.indexOf(title)];
 		//Ti.API.info(sub_msg);
 		var showing_msg = JSON.stringify(sub_msg).replace(/(^"+|"+$)/g, '').replace(/\\r\\n+/g, '\n');
@@ -40,7 +40,8 @@ exports.SubHandler = {
 		win_sub.add(message_label);
 		win_sub.add(btnBack);
 		btnBack.addEventListener('click',function(e){
-			nav.closeWindow(win_sub, {animated:true});
+			//nav.closeWindow(win_sub, {animated:true});
+			win_sub.close();
 		});
 		win_sub.open({animated: true});
 	}

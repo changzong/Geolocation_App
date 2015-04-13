@@ -7,6 +7,7 @@ var tabGroup = Titanium.UI.createTabGroup();
 var GlobelV = require('labels');
 var SendMsg = require('send_msg');
 var SubHandler = require('sub_handler');
+var UserHandler = require('user_account_handler');
 //
 // create base UI tab and root window
 //
@@ -35,13 +36,27 @@ var tab2 = Titanium.UI.createTab({
     title:'YourMsg',
     window:win2
 });
-
 win2.add(GlobelV.Labels.label2);
+
+var win3 = Titanium.UI.createWindow({
+	title: 'Login',
+	backgroundColor: '#fff'
+});
+var tab3 = Titanium.UI.createTab({
+	icon: 'images/KS_nav_views.png',
+	title: 'Login',
+	window: win3
+});
+win3.add(GlobelV.Labels.label3);
+win3.add(UserHandler.Properties.button_signin);
+win3.add(UserHandler.Properties.button_register);
+
 //
 //  add tabs
 //
 tabGroup.addTab(tab1);  
 tabGroup.addTab(tab2);  
+tabGroup.addTab(tab3); 
 
 // open tab group
 tabGroup.open();
