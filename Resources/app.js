@@ -134,3 +134,7 @@ button3.addEventListener('click', function (e){
     	});
     });
 });
+
+UserHandler.Properties.button_register.addEventListener('click', function(){
+	UserHandler.Properties.register_page_handler();
+});
