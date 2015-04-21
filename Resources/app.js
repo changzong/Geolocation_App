@@ -138,3 +138,8 @@ button3.addEventListener('click', function (e){
 UserHandler.Properties.button_register.addEventListener('click', function(){
 	UserHandler.Properties.register_page_handler();
 });
+
+UserHandler.Properties.button_signin.addEventListener('click', function(){
+	UserHandler.Properties.login_page_handler();
+});
+
